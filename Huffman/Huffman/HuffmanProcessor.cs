@@ -104,8 +104,9 @@ public class HuffmanProcessor
             fs.Write(compressed.EncodedData);           // Byte[]
         }
     }
-    public void Decompress(string archivePath, string outputDirectory)
-    {
+    public List<FolderFileEntry> Decompress(string archivePath, string outputBaseDirectory) {
+        var result = new List<FolderFileEntry>();
+
         using var reader = new BinaryReader(File.Open(archivePath, FileMode.Open));
 
         // === Read number of files ===
@@ -113,21 +114,21 @@ public class HuffmanProcessor
 
         for (int i = 0; i < fileCount; i++) {
             // === Read relative path ===
-            int pathLength = reader.ReadInt32();           // Int32
-            byte[] pathBytes = reader.ReadBytes(pathLength); // Byte[]
+            int pathLength = reader.ReadInt32();                 // Int32
+            byte[] pathBytes = reader.ReadBytes(pathLength);     // Byte[]
             string relativePath = Encoding.UTF8.GetString(pathBytes);
 
             // === Read frequency table ===
-            int tableSize = reader.ReadInt32();            // Int32
+            int tableSize = reader.ReadInt32();                  // Int32
             var freqTable = new Dictionary<byte, int>();
             for (int j = 0; j < tableSize; j++) {
-                byte symbol = reader.ReadByte();           // Byte
-                int freq = reader.ReadInt32();             // Int32
+                byte symbol = reader.ReadByte();                 // Byte
+                int freq = reader.ReadInt32();                   // Int32
                 freqTable[symbol] = freq;
             }
 
             // === Read compressed data ===
-            int encodedLength = reader.ReadInt32();        // Int32
+            int encodedLength = reader.ReadInt32();              // Int32
             byte[] encodedData = reader.ReadBytes(encodedLength); // Byte[]
 
             // === Reconstruct Huffman tree and decode ===
@@ -145,10 +146,11 @@ public class HuffmanProcessor
                 }
             }
 
-            // === Save decompressed file using full path ===
-            string outputFilePath = Path.Combine(outputDirectory, relativePath);
-            Directory.CreateDirectory(Path.GetDirectoryName(outputFilePath)!);
-            File.WriteAllBytes(outputFilePath, outputBytes.ToArray());
+            string fullPath = Path.Combine(outputBaseDirectory, relativePath);
+            result.Add(new FolderFileEntry(fullPath, relativePath, outputBytes.ToArray()));
         }
+
+        return result;
     }
+
 }

@@ -8,13 +8,21 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        folderEntries = new();
+        inputFolderEntries = new();
         compressor = new HuffmanProcessor();
     }
     private void AddInputFile(string containingFolderPath,string filePath) {
         string relativePath = Path.GetRelativePath(containingFolderPath, filePath);
-        folderEntries.Add(new FolderFileEntry(filePath,relativePath));
+        inputFolderEntries.Add(new FolderFileEntry(filePath,relativePath));
         AddFileToList(filePath,fileListPanel);
+    }
+
+    private void DecompressSingleFile(FolderFileEntry entry) {
+        // Ensure parent directories exist
+        Directory.CreateDirectory(Path.GetDirectoryName(entry.FullPath)!);
+
+        // Write the decompressed file
+        File.WriteAllBytes(entry.FullPath, entry.Data!);
     }
 
     private void browseButton_Click(object sender, EventArgs e)
@@ -37,9 +45,9 @@ public partial class Form1 : Form
         };
 
         if (saveFileDialog.ShowDialog() == DialogResult.OK) {
-            outputFile = saveFileDialog.FileName;
+            archivePath = saveFileDialog.FileName;
             try {
-                this.compressor.Compress(folderEntries, outputFile);
+                this.compressor.Compress(inputFolderEntries, archivePath);
                 MessageBox.Show("Compression complete!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex){
@@ -47,10 +55,8 @@ public partial class Form1 : Form
             }
         }
     }
-    private void decompressButton_Click(object sender, EventArgs e)
-    {
-
-        FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+    private void decompressButton_Click(object sender, EventArgs e) {
+        using FolderBrowserDialog folderDialog = new FolderBrowserDialog();
         folderDialog.Description = "Choose where to extract the files";
 
         if (folderDialog.ShowDialog() != DialogResult.OK)
@@ -59,14 +65,20 @@ public partial class Form1 : Form
         string outputDir = folderDialog.SelectedPath;
 
         try {
-            this.compressor.Decompress(outputFile, outputDir);
+            // Call Decompress and get output entries (each with FullPath and decompressed Data)
+            this.outputEntries = this.compressor.Decompress(this.archivePath, outputDir);
+
+            // Save each decompressed file to disk
+            foreach (var entry in outputEntries) {
+                DecompressSingleFile(entry);
+            }
+
             MessageBox.Show("Decompression complete!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch (Exception ex) {
             MessageBox.Show($"An error occurred:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-
 
     private void BrowseFolderButton_Click(object sender, EventArgs e) {
         using var folderDialog = new FolderBrowserDialog();
@@ -75,12 +87,12 @@ public partial class Form1 : Form
             string baseFolder = folderDialog.SelectedPath;
             var files = Directory.GetFiles(baseFolder, "*", SearchOption.AllDirectories);
 
-            folderEntries.Clear(); // Clear any previous folder selections
+            inputFolderEntries.Clear(); // Clear any previous folder selections
             ClearFileList(fileListPanel);
 
             foreach (var file in files) {
                 string relativePath = Path.GetRelativePath(baseFolder, file);
-                folderEntries.Add(new FolderFileEntry(file, relativePath));
+                inputFolderEntries.Add(new FolderFileEntry(file, relativePath));
 
                 AddFileToList(file,fileListPanel); // optional: visually show each file in the UI
             }
@@ -88,15 +100,31 @@ public partial class Form1 : Form
     }
     private void BrowseArchiveButton_Click(object sender, EventArgs e) {
         ClearFileList(archivedListPanel);
-        OpenFileDialog openFileDialog = new OpenFileDialog();
-        openFileDialog.Filter = "Huffman Archive (*.huff)|*.huff";
-        openFileDialog.Title = "Select Huffman Compressed File";
+
+        OpenFileDialog openFileDialog = new OpenFileDialog {
+            Filter = "Huffman Archive (*.huff)|*.huff",
+            Title = "Select Huffman Compressed File"
+        };
 
         if (openFileDialog.ShowDialog() != DialogResult.OK)
             return;
 
-        outputFile = openFileDialog.FileName;
-        AddFileToList(outputFile, archivedListPanel);
+        archivePath = openFileDialog.FileName;
+
+        try {
+            // Decompress archive and store results
+            outputEntries = this.compressor.Decompress(archivePath,archivePath);
+
+            // Show decompressed file entries in the UI
+            foreach (var entry in outputEntries) {
+                AddFileToList(entry, archivedListPanel);
+            }
+        }
+        catch (Exception ex) {
+            MessageBox.Show($"Failed to load archive:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
+
+
 
 }

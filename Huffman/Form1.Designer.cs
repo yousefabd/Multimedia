@@ -27,9 +27,11 @@ namespace Huffman {
         private TextBox textBox2;
 
         //the current list of folders/files we want to compress
-        public List<FolderFileEntry> folderEntries { get; set; }
-        //the current compressed output file that we want to decompress
-        public string outputFile { get; set; }
+        public List<FolderFileEntry> inputFolderEntries { get; set; }
+        //file entries containing the compressed bytes that will be saved
+        public List<FolderFileEntry> outputEntries { get; set; }
+        //the current compressed output file path that we want to decompress
+        public string archivePath { get; set; }
 
         protected override void Dispose(bool disposing) {
             if (disposing && (components != null))
@@ -139,7 +141,7 @@ namespace Huffman {
             decompressButton.Text = " Extract";
             decompressButton.TextAlign = ContentAlignment.MiddleRight;
             decompressButton.UseVisualStyleBackColor = false;
-            decompressButton.Image = Image.FromFile("../../../media/decompress.png"); 
+            decompressButton.Image = Image.FromFile("../../../media/decompress.png");
             decompressButton.Click += decompressButton_Click;
 
             // 
@@ -222,7 +224,7 @@ namespace Huffman {
             ResumeLayout(false);
         }
 
-        private void AddFileToList(string filePath,Panel listPanel) {
+        private void AddFileToList(string filePath, Panel listPanel) {
             var fileName = "📄 " + Path.GetFileName(filePath);
             var fileExtension = Path.GetExtension(filePath).ToUpperInvariant();
             var fileInfo = new FileInfo(filePath);
@@ -273,6 +275,94 @@ namespace Huffman {
             listPanel.Controls.Add(container);
             listPanel.Controls.SetChildIndex(container, 0);
         }
+        private void AddFileToList(FolderFileEntry entry, Panel listPanel) {
+            string fileName = "📄 " + Path.GetFileName(entry.RelativePath);
+            string fileExtension = Path.GetExtension(entry.RelativePath).ToUpperInvariant();
+            double sizeInKB = entry.Data != null ? entry.Data.Length / 1024.0 : 0;
+            string fileSizeStr = sizeInKB >= 1024
+                ? $"{sizeInKB / 1024.0:F2} MB"
+                : $"{sizeInKB:F2} KB";
+
+            var container = new Panel {
+                Height = 50,
+                Dock = DockStyle.Top,
+                Padding = new Padding(5),
+                BackColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle,
+            };
+
+            var nameLabel = new Label {
+                Text = fileName,
+                AutoSize = true,
+                Location = new Point(50, 10),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+            };
+
+            var typeLabel = new Label {
+                Text = fileExtension + " File",
+                AutoSize = true,
+                Location = new Point(50, 28),
+                Font = new Font("Segoe UI", 8),
+                ForeColor = Color.Gray
+            };
+
+            var sizeLabel = new Label {
+                Text = fileSizeStr,
+                AutoSize = true,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                Font = new Font("Segoe UI", 9),
+                ForeColor = Color.DimGray
+            };
+
+            var decompressButton = new PictureBox {
+                Image = Image.FromFile("../../../media/decompress_icon.png"),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(20, 20),
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                Cursor = Cursors.Hand
+            };
+
+            decompressButton.Click += (s, e) =>
+            {
+                using FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+                folderDialog.Description = "Choose where to extract the file";
+
+                if (folderDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string outputDir = folderDialog.SelectedPath;
+                entry.FullPath = Path.Combine(outputDir, entry.RelativePath);
+                try {
+                    DecompressSingleFile(entry);
+                    MessageBox.Show("Decompression complete!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex) {
+                    MessageBox.Show($"An error occurred:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+
+            container.Resize += (s, e) =>
+            {
+                int padding = 10;
+                decompressButton.Left = container.Width - decompressButton.Width - padding;
+                decompressButton.Top = (container.Height - decompressButton.Height) / 2;
+
+                sizeLabel.Left = decompressButton.Left - sizeLabel.Width - 5;
+                sizeLabel.Top = (container.Height - sizeLabel.Height) / 2;
+            };
+
+            // Trigger initial position setup
+            container.PerformLayout();
+
+            container.Controls.Add(nameLabel);
+            container.Controls.Add(typeLabel);
+            container.Controls.Add(sizeLabel);
+            container.Controls.Add(decompressButton);
+
+            listPanel.Controls.Add(container);
+            listPanel.Controls.SetChildIndex(container, 0);
+        }
+
 
         private void ClearFileList(Panel listPanel) {
             listPanel.Controls.Clear();
@@ -283,5 +373,6 @@ namespace Huffman {
                 .OfType<Panel>()
                 .Any(p => p.BorderStyle == BorderStyle.FixedSingle);
         }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Huffman.data;
 using Huffman.Huffman;
+using Huffman.UI;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,16 +23,8 @@ namespace Huffman {
         private Button decompressButton;
         private Button browseArchiveButton;
 
-        private HuffmanProcessor compressor;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        ProgressWindow progressWindow;
 
-        //the current list of folders/files we want to compress
-        public List<FolderFileEntry> inputFolderEntries { get; set; }
-        //file entries containing the compressed bytes that will be saved
-        public List<FolderFileEntry> outputEntries { get; set; }
-        //the current compressed output file path that we want to decompress
-        public string archivePath { get; set; }
 
         protected override void Dispose(bool disposing) {
             if (disposing && (components != null))
@@ -50,6 +43,8 @@ namespace Huffman {
             archivedListPanel = new Panel();
             compressPanel = new TableLayoutPanel();
             decompressPanel = new TableLayoutPanel();
+
+            progressWindow = new ProgressWindow();
 
             compressPanel.SuspendLayout();
             decompressPanel.SuspendLayout();
@@ -206,6 +201,12 @@ namespace Huffman {
             decompressPanel.Size = new Size(1000, 83);
             decompressPanel.TabIndex = 2;
 
+            //
+            // ProgressWindow
+            //
+            progressWindow.CancelButton.Click += ProgressWindowCancelButton_Click;
+            progressWindow.PauseButton.Click += ProgressWindowPauseButton_Click;
+
             // 
             // Form1
             // 
@@ -224,7 +225,7 @@ namespace Huffman {
             ResumeLayout(false);
         }
 
-        private void AddFileToList(string filePath, Panel listPanel) {
+        private void AddFileToListUI(string filePath, Panel listPanel) {
             var fileName = "📄 " + Path.GetFileName(filePath);
             var fileExtension = Path.GetExtension(filePath).ToUpperInvariant();
             var fileInfo = new FileInfo(filePath);
@@ -275,7 +276,7 @@ namespace Huffman {
             listPanel.Controls.Add(container);
             listPanel.Controls.SetChildIndex(container, 0);
         }
-        private void AddFileToList(FolderFileEntry entry, Panel listPanel) {
+        private void AddFileToListUI(FolderFileEntry entry, Panel listPanel) {
             string fileName = "📄 " + Path.GetFileName(entry.RelativePath);
             string fileExtension = Path.GetExtension(entry.RelativePath).ToUpperInvariant();
             double sizeInKB = entry.Data != null ? entry.Data.Length / 1024.0 : 0;

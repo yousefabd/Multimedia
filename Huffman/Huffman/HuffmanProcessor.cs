@@ -1,30 +1,24 @@
-﻿using Huffman.data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Huffman.Archive;
+using Huffman.data;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Huffman.Huffman;
 
-public class HuffmanProcessor
-{
+public class HuffmanProcessor : IArchiveProcessor {
     // public Dictionary<byte, string> CodeTable { get; set; } = [];
-    public Dictionary<byte, int> MakeRepitionsTable(byte[] bytes)
-    {
+
+
+    public Dictionary<byte, int> MakeRepitionsTable(byte[] bytes) {
         var frequencies = new Dictionary<byte, int>();
-        foreach (var byt in bytes)
-        {
-            if (!frequencies.ContainsKey(byt))
-            {
+        foreach (var byt in bytes) {
+            if (!frequencies.ContainsKey(byt)) {
                 frequencies.Add(byt, 0);
             }
             frequencies[byt]++;
         }
         return frequencies;
     }
-    public HuffmanNode BuildHuffTree(Dictionary<byte, int> frequencies)
-    {
+    public HuffmanNode BuildHuffTree(Dictionary<byte, int> frequencies) {
         var pq = new PriorityQueue<HuffmanNode, int>();
         foreach (var kv in frequencies) {
             pq.Enqueue(new HuffmanNode { Symbol = kv.Key, Frequency = kv.Value }, kv.Value);
@@ -42,14 +36,11 @@ public class HuffmanProcessor
 
         return pq.Dequeue();
     }
-    public void BuildCodeTable(HuffmanNode node, string code, Dictionary<byte, string> codeTable)
-    {
-        if (node is null)
-        {
+    public void BuildCodeTable(HuffmanNode node, string code, Dictionary<byte, string> codeTable) {
+        if (node is null) {
             return;
         }
-        if (node.IsLeaf && node.Symbol.HasValue)
-        {
+        if (node.IsLeaf && node.Symbol.HasValue) {
             codeTable[node.Symbol.Value] = code;
 
         }
@@ -57,8 +48,7 @@ public class HuffmanProcessor
         BuildCodeTable(node.Right, code + '1', codeTable);
 
     }
-    public HuffmanCompressedFile HuffmanCompress(string inputPath)
-    {
+    public HuffmanCompressedFile HuffmanCompress(string inputPath) {
         byte[] data = File.ReadAllBytes(inputPath);
         var freqTable = MakeRepitionsTable(data);
         var tree = BuildHuffTree(freqTable);
@@ -77,14 +67,19 @@ public class HuffmanProcessor
             EncodedData = writer.GetBytes()
         };
     }
-    public void Compress(List<FolderFileEntry> files, string outputArchivePath)
-    {
+    public void Compress(List<FolderFileEntry> files, string outputArchivePath, IProgress<ProgressReport>? progress = null, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
         using var fs = new BinaryWriter(File.Open(outputArchivePath, FileMode.Create));
 
         // === Write number of files ===
         fs.Write(files.Count);
-
+        //too lazy to switch to normal for loop
+        int i = 0;
         foreach (FolderFileEntry entry in files) {
+            //check if cancelled
+            cancellationToken.ThrowIfCancellationRequested();
+            //check if paused
+            pauseEvent.Wait();
+
             HuffmanCompressedFile compressed = HuffmanCompress(entry.FullPath);
 
             byte[] relativePathBytes = Encoding.UTF8.GetBytes(entry.RelativePath);
@@ -102,9 +97,15 @@ public class HuffmanProcessor
             // === Write compressed data ===
             fs.Write(compressed.EncodedData.Length);    // Int32
             fs.Write(compressed.EncodedData);           // Byte[]
+            int percent = (int)(((i + 1) / (float)files.Count) * 100);
+            i++;
+            progress?.Report(new ProgressReport {
+                FileName = entry.RelativePath,
+                Percentage = percent
+            });
         }
     }
-    public List<FolderFileEntry> Decompress(string archivePath, string outputBaseDirectory) {
+    public List<FolderFileEntry> Decompress(string archivePath, string outputBaseDirectory, IProgress<ProgressReport>? progress, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
         var result = new List<FolderFileEntry>();
 
         using var reader = new BinaryReader(File.Open(archivePath, FileMode.Open));
@@ -113,6 +114,10 @@ public class HuffmanProcessor
         int fileCount = reader.ReadInt32(); // Int32: number of files
 
         for (int i = 0; i < fileCount; i++) {
+            //check if cancelled
+            cancellationToken.ThrowIfCancellationRequested();
+            //check if paused
+            pauseEvent.Wait();
             // === Read relative path ===
             int pathLength = reader.ReadInt32();                 // Int32
             byte[] pathBytes = reader.ReadBytes(pathLength);     // Byte[]
@@ -148,6 +153,12 @@ public class HuffmanProcessor
 
             string fullPath = Path.Combine(outputBaseDirectory, relativePath);
             result.Add(new FolderFileEntry(fullPath, relativePath, outputBytes.ToArray()));
+
+            int percent = (int)(((i + 1) / (float)fileCount) * 100);
+            progress?.Report(new ProgressReport {
+                FileName = relativePath,
+                Percentage = percent
+            });
         }
 
         return result;

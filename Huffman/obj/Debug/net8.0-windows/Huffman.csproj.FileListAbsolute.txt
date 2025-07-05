@@ -63,3 +63,4 @@ C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\ne
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.pdb
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.genruntimeconfig.cache
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\ref\Huffman.dll
+C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.UI.ProgressWindow.resources

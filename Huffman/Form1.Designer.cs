@@ -276,6 +276,7 @@ namespace Huffman {
             listPanel.Controls.Add(container);
             listPanel.Controls.SetChildIndex(container, 0);
         }
+
         private void AddFileToListUI(FolderFileEntry entry, Panel listPanel) {
             string fileName = "📄 " + Path.GetFileName(entry.RelativePath);
             string fileExtension = Path.GetExtension(entry.RelativePath).ToUpperInvariant();

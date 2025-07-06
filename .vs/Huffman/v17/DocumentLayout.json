@@ -3,44 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\archive\\archiveworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\archive\\archiveworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\shannonfano\\shannonfanoprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\shannonfano\\shannonfanoprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\huffman\\huffmanprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\huffman\\huffmanprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\huffman\\huffmannode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\huffman\\huffmannode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\archive\\iarchiveprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\archive\\iarchiveprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\archive\\progressreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\archive\\progressreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\archive\\archiveworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\archive\\archiveworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\archive\\bitwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,8 +31,20 @@
       "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\huffman\\huffmancompressedfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\huffman.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\huffman.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\huffman\\huffmannode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\huffman\\huffmannode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\shannonfano\\shannonfanonode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\shannonfano\\shannonfanonode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\archive\\iarchiveprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\archive\\iarchiveprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\data\\folderfileentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,6 +53,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\data\\fileutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\data\\fileutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\ui\\progresswindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\huffman.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|solutionrelative:huffman\\huffman.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{232ECCAB-73E2-456E-A096-875F9E4B7EB7}|Huffman\\Huffman.csproj|c:\\users\\legion\\desktop\\multimedia\\final project\\multimedia\\huffman\\form1.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
@@ -74,7 +82,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,7 +106,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
+              "Title": "ShannonFanoNode.cs",
+              "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\ShannonFano\\ShannonFanoNode.cs",
+              "RelativeDocumentMoniker": "Huffman\\ShannonFano\\ShannonFanoNode.cs",
+              "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\ShannonFano\\ShannonFanoNode.cs",
+              "RelativeToolTip": "Huffman\\ShannonFano\\ShannonFanoNode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T09:24:03.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HuffmanProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanProcessor.cs",
+              "RelativeDocumentMoniker": "Huffman\\Huffman\\HuffmanProcessor.cs",
+              "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanProcessor.cs",
+              "RelativeToolTip": "Huffman\\Huffman\\HuffmanProcessor.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAAAGQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T08:54:32.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShannonFanoProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\ShannonFano\\ShannonFanoProcessor.cs",
+              "RelativeDocumentMoniker": "Huffman\\ShannonFano\\ShannonFanoProcessor.cs",
+              "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\ShannonFano\\ShannonFanoProcessor.cs",
+              "RelativeToolTip": "Huffman\\ShannonFano\\ShannonFanoProcessor.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAAF8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-06T09:13:31.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProgressReport.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Archive\\ProgressReport.cs",
               "RelativeDocumentMoniker": "Huffman\\Archive\\ProgressReport.cs",
@@ -111,19 +158,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "ProgressWindow.cs [Design]",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\UI\\ProgressWindow.cs",
               "RelativeDocumentMoniker": "Huffman\\UI\\ProgressWindow.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\UI\\ProgressWindow.cs [Design]",
               "RelativeToolTip": "Huffman\\UI\\ProgressWindow.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T12:50:44.966Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-07-05T12:50:44.966Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "ProgressWindow.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\UI\\ProgressWindow.cs",
               "RelativeDocumentMoniker": "Huffman\\UI\\ProgressWindow.cs",
@@ -131,50 +177,50 @@
               "RelativeToolTip": "Huffman\\UI\\ProgressWindow.cs",
               "ViewState": "AgIAAFoAAAAAAAAAAAAAAGsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T12:42:57.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-05T12:42:57.833Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "ArchiveWorker.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Archive\\ArchiveWorker.cs",
               "RelativeDocumentMoniker": "Huffman\\Archive\\ArchiveWorker.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Archive\\ArchiveWorker.cs",
               "RelativeToolTip": "Huffman\\Archive\\ArchiveWorker.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAqwE0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T11:56:26.769Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "IArchiveProcessor.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Archive\\IArchiveProcessor.cs",
               "RelativeDocumentMoniker": "Huffman\\Archive\\IArchiveProcessor.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Archive\\IArchiveProcessor.cs",
               "RelativeToolTip": "Huffman\\Archive\\IArchiveProcessor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-05T11:43:22.421Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "BitWriter.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Archive\\BitWriter.cs",
               "RelativeDocumentMoniker": "Huffman\\Archive\\BitWriter.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Archive\\BitWriter.cs",
               "RelativeToolTip": "Huffman\\Archive\\BitWriter.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAAAD8AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAAEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-05T11:40:29.503Z"
+              "WhenOpened": "2025-07-05T11:40:29.503Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "FileUtils.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\data\\FileUtils.cs",
               "RelativeDocumentMoniker": "Huffman\\data\\FileUtils.cs",
@@ -186,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "Huffman.csproj",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman.csproj",
               "RelativeDocumentMoniker": "Huffman\\Huffman.csproj",
@@ -198,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
               "Title": "FolderFileEntry.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\data\\FolderFileEntry.cs",
               "RelativeDocumentMoniker": "Huffman\\data\\FolderFileEntry.cs",
@@ -210,58 +256,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Form1.cs",
               "RelativeDocumentMoniker": "Huffman\\Form1.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Form1.cs",
               "RelativeToolTip": "Huffman\\Form1.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAAAKkAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAuwGMAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T18:23:54.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "HuffmanCompressedFile.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanCompressedFile.cs",
               "RelativeDocumentMoniker": "Huffman\\Huffman\\HuffmanCompressedFile.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanCompressedFile.cs",
               "RelativeToolTip": "Huffman\\Huffman\\HuffmanCompressedFile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T12:33:21.887Z"
+              "WhenOpened": "2025-06-26T12:33:21.887Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "HuffmanNode.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanNode.cs",
               "RelativeDocumentMoniker": "Huffman\\Huffman\\HuffmanNode.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanNode.cs",
               "RelativeToolTip": "Huffman\\Huffman\\HuffmanNode.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T09:00:56.178Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HuffmanProcessor.cs",
-              "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanProcessor.cs",
-              "RelativeDocumentMoniker": "Huffman\\Huffman\\HuffmanProcessor.cs",
-              "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Huffman\\HuffmanProcessor.cs",
-              "RelativeToolTip": "Huffman\\Huffman\\HuffmanProcessor.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAAAHcAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T08:54:32.231Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Form1.resx",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Form1.resx",
               "RelativeDocumentMoniker": "Huffman\\Form1.resx",
@@ -272,20 +306,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Huffman\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Form1.Designer.cs",
               "RelativeToolTip": "Huffman\\Form1.Designer.cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAAAM8AAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAAAAoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T07:57:59.961Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\LEGION\\Desktop\\Multimedia\\Final Project\\Multimedia\\Huffman\\Program.cs",
               "RelativeDocumentMoniker": "Huffman\\Program.cs",
@@ -293,8 +327,7 @@
               "RelativeToolTip": "Huffman\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T07:57:57.493Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T07:57:57.493Z"
             }
           ]
         }

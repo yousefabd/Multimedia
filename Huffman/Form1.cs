@@ -1,4 +1,4 @@
-using Huffman.data;
+﻿using Huffman.data;
 using Huffman.Huffman;
 using Huffman.ShannonFano;
 
@@ -84,36 +84,48 @@ public partial class Form1 : Form
     }
 
     private void compressButton_Click(object sender, EventArgs e) {
+        string extension, filter;
+        if (archiveWorker.Processor is HuffmanProcessor) {
+            extension = "huff";
+            filter = "Huffman Archive (*.huff)|*.huff";
+        }
+        else if (archiveWorker.Processor is ShannonFanoProcessor) {
+            extension = "sfarc";
+            filter = "Shannon-Fano Archive (*.sfarc)|*.sfarc";
+        }
+        else {
+            extension = "bin";
+            filter = "All files (*.*)|*.*";
+        }
+
+        // Suggested archive name
+        string suggestedName = "";
+        if (inputFolderEntries.Count == 1) {
+            suggestedName = Path.GetFileNameWithoutExtension(inputFolderEntries[0].FullPath);
+        }
+        else if(inputFolderEntries.Count > 1){
+            // Get the common root folder name if possible
+            var firstPath = inputFolderEntries[0].FullPath;
+            string? topFolder = Path.GetDirectoryName(firstPath)?.Split(Path.DirectorySeparatorChar).LastOrDefault();
+            suggestedName = !string.IsNullOrEmpty(topFolder) ? topFolder : "Compressed";
+        }
+
         using var saveFileDialog = new SaveFileDialog {
             Title = "Save Compressed Archive",
-            Filter = "Huffman Archive (*.huff)|*.huff|Shannon-Fano Archive (*.sfarc)|*.sfarc",
-            DefaultExt = "huff", // Default to Huffman
-            FileName = "Compressed.huff",
+            Filter = filter,
+            DefaultExt = extension,
+            FileName = suggestedName + "." + extension,
             AddExtension = true
         };
 
-        if (saveFileDialog.ShowDialog() != DialogResult.OK)
-            return;
-
-        archivePath = saveFileDialog.FileName;
-
-        // Detect which filter the user selected (1-based index)
-        switch (saveFileDialog.FilterIndex) {
-            case 1:
-                archiveWorker.SetProcessor(new HuffmanProcessor());
-                break;
-            case 2:
-                archiveWorker.SetProcessor(new ShannonFanoProcessor());
-                break;
-            default:
-                MessageBox.Show("Unknown compression type selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+        if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+            archivePath = saveFileDialog.FileName;
+            archiveWorker.CompressAsync(inputFolderEntries, archivePath);
+            progressWindow.Show();
+            progressWindow.SetAction("adding");
         }
-
-        archiveWorker.CompressAsync(inputFolderEntries, archivePath);
-        progressWindow.Show();
-        progressWindow.SetAction("adding");
     }
+
 
 
     private void decompressButton_Click(object sender, EventArgs e) {

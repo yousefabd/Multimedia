@@ -1,5 +1,6 @@
 ﻿using Huffman.data;
 using Huffman.Huffman;
+using Huffman.Properties;
 using Huffman.UI;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,16 @@ namespace Huffman {
             base.Dispose(disposing);
         }
 
+        public static Image ByteArrayToImage(byte[] byteArray) {
+            if (byteArray == null || byteArray.Length == 0)
+                throw new ArgumentException("Invalid image byte array");
+
+            using (var ms = new MemoryStream(byteArray)) {
+                return Image.FromStream(ms).Clone() as Image
+                       ?? throw new InvalidDataException("Could not load image from stream.");
+            }
+        }
+
         private void InitializeComponent() {
             browseFileButton = new Button();
             browseFolderButton = new Button();
@@ -45,6 +56,18 @@ namespace Huffman {
             decompressPanel = new TableLayoutPanel();
 
             progressWindow = new ProgressWindow();
+
+            var mainLayout = new TableLayoutPanel {
+                Dock = DockStyle.Fill,
+                RowCount = 4,
+                ColumnCount = 1,
+                BackColor = Color.Transparent,
+            };
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 83));  // compressPanel
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));  // fileListPanel
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 83));  // decompressPanel
+            mainLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));  // archivedListPanel
+            mainLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 
             compressPanel.SuspendLayout();
             decompressPanel.SuspendLayout();
@@ -67,7 +90,7 @@ namespace Huffman {
             browseFileButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             browseFileButton.UseVisualStyleBackColor = false;
             browseFileButton.Click += browseButton_Click;
-            browseFileButton.Image = Image.FromFile("../../../media/browse.png"); // 🔍 File icon
+            browseFileButton.Image = ByteArrayToImage(Properties.Resource2.browse);
 
             // 
             // browseFolderButton
@@ -86,7 +109,7 @@ namespace Huffman {
             browseFolderButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             browseFolderButton.UseVisualStyleBackColor = false;
             browseFolderButton.Click += BrowseFolderButton_Click; ;
-            browseFolderButton.Image = Image.FromFile("../../../media/folder.png"); // 📁 Folder icon
+            browseFolderButton.Image = ByteArrayToImage(Properties.Resource2.folder);
 
             // 
             // compressButton
@@ -102,7 +125,7 @@ namespace Huffman {
             compressButton.Text = " Add to Archive";
             compressButton.TextAlign = ContentAlignment.MiddleRight;
             compressButton.UseVisualStyleBackColor = false;
-            compressButton.Image = Image.FromFile("../../../media/compress.png"); // 📦 Compress icon
+            compressButton.Image = ByteArrayToImage(Properties.Resource2.compress);
             compressButton.Click += compressButton_Click;
 
             // 
@@ -119,7 +142,7 @@ namespace Huffman {
             browseArchiveButton.Text = " Browse Archive";
             browseArchiveButton.TextAlign = ContentAlignment.MiddleRight;
             browseArchiveButton.UseVisualStyleBackColor = false;
-            browseArchiveButton.Image = Image.FromFile("../../../media/browse.png"); // 📦 Archive icon
+            browseArchiveButton.Image = ByteArrayToImage(Properties.Resource2.browse);
             browseArchiveButton.Click += BrowseArchiveButton_Click;
 
             // 
@@ -136,7 +159,7 @@ namespace Huffman {
             decompressButton.Text = " Extract";
             decompressButton.TextAlign = ContentAlignment.MiddleRight;
             decompressButton.UseVisualStyleBackColor = false;
-            decompressButton.Image = Image.FromFile("../../../media/decompress.png");
+            decompressButton.Image = ByteArrayToImage(Properties.Resource2.decompress);
             decompressButton.Click += decompressButton_Click;
 
             // 
@@ -145,7 +168,6 @@ namespace Huffman {
             fileListPanel.AutoScroll = true;
             fileListPanel.BackColor = Color.WhiteSmoke;
             fileListPanel.BorderStyle = BorderStyle.FixedSingle;
-            fileListPanel.Dock = DockStyle.Top;
             fileListPanel.Location = new Point(0, 83);
             fileListPanel.Name = "fileListPanel";
             fileListPanel.Size = new Size(1000, 200);
@@ -157,7 +179,6 @@ namespace Huffman {
             archivedListPanel.AutoScroll = true;
             archivedListPanel.BackColor = Color.WhiteSmoke;
             archivedListPanel.BorderStyle = BorderStyle.FixedSingle;
-            archivedListPanel.Dock = DockStyle.Fill;
             archivedListPanel.Location = new Point(0, 366);
             archivedListPanel.Name = "archivedListPanel";
             archivedListPanel.Size = new Size(1000, 234);
@@ -174,7 +195,6 @@ namespace Huffman {
             compressPanel.Controls.Add(browseFileButton, 0, 0);
             compressPanel.Controls.Add(browseFolderButton, 1, 0);
             compressPanel.Controls.Add(compressButton, 2, 0);
-            compressPanel.Dock = DockStyle.Top;
             compressPanel.Location = new Point(0, 0);
             compressPanel.Name = "compressPanel";
             compressPanel.Padding = new Padding(10);
@@ -192,7 +212,6 @@ namespace Huffman {
             decompressPanel.ColumnStyles.Add(new ColumnStyle());
             decompressPanel.Controls.Add(browseArchiveButton, 0, 0);
             decompressPanel.Controls.Add(decompressButton, 1, 0);
-            decompressPanel.Dock = DockStyle.Top;
             decompressPanel.Location = new Point(0, 283);
             decompressPanel.Name = "decompressPanel";
             decompressPanel.Padding = new Padding(10);
@@ -213,12 +232,21 @@ namespace Huffman {
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 600);
-            Controls.Add(archivedListPanel);
-            Controls.Add(decompressPanel);
-            Controls.Add(fileListPanel);
-            Controls.Add(compressPanel);
+
+            mainLayout.Controls.Add(compressPanel, 0, 0);
+            mainLayout.Controls.Add(fileListPanel, 0, 1);
+            mainLayout.Controls.Add(decompressPanel, 0, 2);
+            mainLayout.Controls.Add(archivedListPanel, 0, 3);
+
+            compressPanel.Dock = DockStyle.Fill;
+            fileListPanel.Dock = DockStyle.Fill;
+            decompressPanel.Dock = DockStyle.Fill;
+            archivedListPanel.Dock = DockStyle.Fill;
+
+            Controls.Clear();
+            Controls.Add(mainLayout);
             Name = "Form1";
-            Text = "Huffman Archiver";
+            Text = "Huffman-ShaFa Archiver";
 
             compressPanel.ResumeLayout(false);
             decompressPanel.ResumeLayout(false);
@@ -226,7 +254,13 @@ namespace Huffman {
         }
 
         private void AddFileToListUI(string filePath, Panel listPanel) {
-            var fileName = "📄 " + Path.GetFileName(filePath);
+            var fileIcon = new PictureBox {
+                Image = ByteArrayToImage(Properties.Resource2.file),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Location = new Point(10, 5),
+                Size = new Size(40, 40),
+            };
+            var fileName = Path.GetFileName(filePath);
             var fileExtension = Path.GetExtension(filePath).ToUpperInvariant();
             var fileInfo = new FileInfo(filePath);
             string fileSizeStr = fileInfo.Length >= 1024 * 1024
@@ -269,6 +303,7 @@ namespace Huffman {
                 sizeLabel.Left = container.Width - sizeLabel.Width - 10;
             };
 
+            container.Controls.Add(fileIcon);
             container.Controls.Add(nameLabel);
             container.Controls.Add(typeLabel);
             container.Controls.Add(sizeLabel);
@@ -278,7 +313,13 @@ namespace Huffman {
         }
 
         private void AddFileToListUI(FolderFileEntry entry, Panel listPanel) {
-            string fileName = "📄 " + Path.GetFileName(entry.RelativePath);
+            var fileIcon = new PictureBox {
+                Image = ByteArrayToImage(Properties.Resource2.file),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Location = new Point(10, 5),
+                Size = new Size(40, 40),
+            };
+            string fileName = Path.GetFileName(entry.RelativePath);
             string fileExtension = Path.GetExtension(entry.RelativePath).ToUpperInvariant();
             double sizeInKB = entry.Data != null ? entry.Data.Length / 1024.0 : 0;
             string fileSizeStr = sizeInKB >= 1024
@@ -317,7 +358,7 @@ namespace Huffman {
             };
 
             var decompressButton = new PictureBox {
-                Image = Image.FromFile("../../../media/decompress_icon.png"),
+                Image = ByteArrayToImage(Properties.Resource2.decompress_icon),
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Size = new Size(20, 20),
                 Anchor = AnchorStyles.Top | AnchorStyles.Right,
@@ -356,6 +397,7 @@ namespace Huffman {
             // Trigger initial position setup
             container.PerformLayout();
 
+            container.Controls.Add(fileIcon);
             container.Controls.Add(nameLabel);
             container.Controls.Add(typeLabel);
             container.Controls.Add(sizeLabel);

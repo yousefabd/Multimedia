@@ -2,3 +2,8 @@
 .vs/Huffman/FileContentIndex/055f7e32-f3b0-4cfb-b08d-de5125094d23.vsidx
 .vs/Huffman/FileContentIndex/055f7e32-f3b0-4cfb-b08d-de5125094d23.vsidx
 /.vs
+/.vs
+/Huffman/bin
+/Huffman/publish
+/Huffman/obj/Release
+/Huffman/obj/Debug

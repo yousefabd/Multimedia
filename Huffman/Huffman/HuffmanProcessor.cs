@@ -67,19 +67,21 @@ public class HuffmanProcessor : IArchiveProcessor {
             EncodedData = writer.GetBytes()
         };
     }
-    public void Compress(List<FolderFileEntry> files, string outputArchivePath, IProgress<ProgressReport>? progress = null, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
+    public int Compress(List<FolderFileEntry> files, string outputArchivePath, IProgress<ProgressReport>? progress = null, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
         using var fs = new BinaryWriter(File.Open(outputArchivePath, FileMode.Create));
 
         // === Write number of files ===
         fs.Write(files.Count);
         //too lazy to switch to normal for loop
         int i = 0;
+        long totalOriginalSize = 0;
         foreach (FolderFileEntry entry in files) {
             //check if cancelled
             cancellationToken.ThrowIfCancellationRequested();
             //check if paused
             pauseEvent.Wait();
 
+            totalOriginalSize += new FileInfo(entry.FullPath).Length;
             HuffmanCompressedFile compressed = HuffmanCompress(entry.FullPath);
 
             byte[] relativePathBytes = Encoding.UTF8.GetBytes(entry.RelativePath);
@@ -104,6 +106,10 @@ public class HuffmanProcessor : IArchiveProcessor {
                 Percentage = percent
             });
         }
+        long compressedSize = new FileInfo(outputArchivePath).Length;
+
+        double ratio = (double)compressedSize / totalOriginalSize;
+        return (int)(100 * ratio);
     }
     public List<FolderFileEntry> Decompress(string archivePath, string outputBaseDirectory, IProgress<ProgressReport>? progress, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
         var result = new List<FolderFileEntry>();

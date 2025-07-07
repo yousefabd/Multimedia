@@ -52,6 +52,7 @@ C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\bin\Debug\ne
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\bin\Debug\net8.0-windows\Huffman.dll
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\bin\Debug\net8.0-windows\Huffman.pdb
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.Form1.resources
+C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.UI.ProgressWindow.resources
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.csproj.GenerateResource.cache
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.AssemblyInfoInputs.cache
@@ -63,4 +64,5 @@ C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\ne
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.pdb
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.genruntimeconfig.cache
 C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\ref\Huffman.dll
-C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.UI.ProgressWindow.resources
+C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.Properties.Resource2.resources
+C:\Users\LEGION\Desktop\Multimedia\Final Project\Multimedia\Huffman\obj\Debug\net8.0-windows\Huffman.Properties.Resources.resources

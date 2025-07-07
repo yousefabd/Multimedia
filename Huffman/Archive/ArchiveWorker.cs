@@ -10,7 +10,7 @@ public class ArchiveWorker {
     private ManualResetEventSlim pauseEvent = new(true);
     bool isPaused = false;
 
-    public event Action? CompressionCompleted;
+    public event Action<int>? CompressionCompleted;
     public event Action<Exception>? CompressionFailed;
 
     public event Action<List<FolderFileEntry>>? DecompressionCompleted;
@@ -41,8 +41,8 @@ public class ArchiveWorker {
         pauseEvent = new(true);
         return Task.Run(() => {
             try {
-                Processor.Compress(files, outputArchivePath,progress,CancelTokenSource.Token, pauseEvent);
-                CompressionCompleted?.Invoke();
+                int ratioInt = Processor.Compress(files, outputArchivePath,progress,CancelTokenSource.Token, pauseEvent);
+                CompressionCompleted?.Invoke(ratioInt);
             }
             catch (OperationCanceledException) {
                 OperationCancelled?.Invoke();

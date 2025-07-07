@@ -58,19 +58,20 @@ public class ShannonFanoProcessor : IArchiveProcessor {
         };
     }
 
-    public void Compress(List<FolderFileEntry> files, string outputArchivePath, IProgress<ProgressReport>? progress = null, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
+    public int Compress(List<FolderFileEntry> files, string outputArchivePath, IProgress<ProgressReport>? progress = null, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
         using var fs = new BinaryWriter(File.Open(outputArchivePath, FileMode.Create));
 
         // === Write number of files ===
         fs.Write(files.Count);
         int i = 0;
-
+        long totalOriginalSize = 0;
         foreach (var entry in files) {
             //check if cancelled
             cancellationToken.ThrowIfCancellationRequested();
             //check if paused
             pauseEvent.Wait();
 
+            totalOriginalSize += new FileInfo(entry.FullPath).Length;
             var compressed = ShannonFanoCompress(entry.FullPath);
             byte[] relativePathBytes = Encoding.UTF8.GetBytes(entry.RelativePath);
 
@@ -96,6 +97,10 @@ public class ShannonFanoProcessor : IArchiveProcessor {
                 Percentage = percent
             });
         }
+        long compressedSize = new FileInfo(outputArchivePath).Length;
+
+        double ratio = (double)compressedSize / totalOriginalSize;
+        return (int)(100 * ratio);
     }
 
     public List<FolderFileEntry> Decompress(string archivePath, string outputBaseDirectory, IProgress<ProgressReport>? progress, CancellationToken cancellationToken = default, ManualResetEventSlim pauseEvent = default!) {
